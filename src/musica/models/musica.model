@@ -1,0 +1,10 @@
+export class MusicModel {
+  id: number;
+  title: string;
+  artist: string;
+  genre?: string;
+
+  constructor(partial: Partial<MusicModel>) {
+    Object.assign(this, partial);
+  }
+}
