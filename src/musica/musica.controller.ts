@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Param, Body, ParseIntPipe } from '@nestjs/common';
 import { MusicaService } from './musica.service';
-import { MusicaModel } from './models/musica.model';
+import { MusicaModel } from './models/music.model';
 
 @Controller('music')
 export class MusicaController {

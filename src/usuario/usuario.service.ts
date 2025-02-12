@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { UsuarioModel } from './models/usuario.model';
+import { UsuarioModel } from './models/users.model';
 
 @Injectable()
 export class UsuarioService {
@@ -11,7 +11,7 @@ export class UsuarioService {
 
   findOne(id: number): UsuarioModel {
     const user = this.users.find(user => user.id === id);
-    if (!user) throw new NotFoundException(Usuario con ID ${id} no encontrado);
+    if (!user) throw new NotFoundException('Usuario con ID ${id} no encontrado');
     return user;
   }
 
@@ -29,7 +29,7 @@ export class UsuarioService {
 
   delete(id: number): void {
     const index = this.users.findIndex(user => user.id === id);
-    if (index === -1) throw new NotFoundException(Usuario con ID ${id} no encontrado);
+    if (index === -1) throw new NotFoundException('Usuario con ID ${id} no encontrado');
     this.users.splice(index, 1);
   }
 }

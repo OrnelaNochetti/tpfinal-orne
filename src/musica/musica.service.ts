@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { MusicaModel } from './models/musica.model';
+import { MusicaModel } from './models/music.model';
 
 @Injectable()
-export class MusicService {
+export class MusicaService {
   private musicCollection: MusicaModel[] = [];
 
   findAll(): MusicaModel[] {
@@ -11,7 +11,7 @@ export class MusicService {
 
   findOne(id: number): MusicaModel {
     const song = this.musicCollection.find(song => song.id === id);
-    if (!song) throw new NotFoundException(Canción con ID ${id} no encontrada);
+     if (!song) throw new NotFoundException('Canción con ID ${id} no encontrada');
     return song;
   }
 
@@ -29,7 +29,7 @@ export class MusicService {
 
   delete(id: number): void {
     const index = this.musicCollection.findIndex(song => song.id === id);
-    if (index === -1) throw new NotFoundException(Canción con ID ${id} no encontrada);
+     if (index === -1) throw new NotFoundException('Canción con ID ${id} no encontrada');
     this.musicCollection.splice(index, 1);
   }
 }
