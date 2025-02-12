@@ -3,7 +3,7 @@ import { MusicaService } from './musica.service';
 import { MusicaModel } from './models/musica.model';
 
 @Controller('music')
-export class MusicController {
+export class MusicaController {
   constructor(private readonly musicService: MusicaService) {}
 
   @Get()

@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { UsuarioModel } from './models/usuario.model';
 
 @Injectable()
-export class UsersService {
+export class UsuarioService {
   private users: UsuarioModel[] = [];
 
   findAll(): UsuarioModel[] {
