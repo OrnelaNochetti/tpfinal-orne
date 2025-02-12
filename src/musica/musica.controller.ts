@@ -1,28 +1,28 @@
 import { Controller, Get, Post, Put, Delete, Param, Body, ParseIntPipe } from '@nestjs/common';
-import { MusicService } from './musica.service';
-import { MusicModel } from './models/musica.model';
+import { MusicaService } from './musica.service';
+import { MusicaModel } from './models/musica.model';
 
 @Controller('music')
 export class MusicController {
-  constructor(private readonly musicService: MusicService) {}
+  constructor(private readonly musicService: MusicaService) {}
 
   @Get()
-  getAllMusic(): MusicModel[] {
+  getAllMusic(): MusicaModel[] {
     return this.musicService.findAll();
   }
 
   @Get(':id')
-  getMusic(@Param('id', ParseIntPipe) id: number): MusicModel {
+  getMusic(@Param('id', ParseIntPipe) id: number): MusicaModel {
     return this.musicService.findOne(id);
   }
 
   @Post()
-  addMusic(@Body() musicData: Partial<MusicModel>): MusicModel {
+  addMusic(@Body() musicData: Partial<MusicaModel>): MusicaModel {
     return this.musicService.create(musicData);
   }
 
   @Put(':id')
-  updateMusic(@Param('id', ParseIntPipe) id: number, @Body() updateData: Partial<MusicModel>): MusicModel {
+  updateMusic(@Param('id', ParseIntPipe) id: number, @Body() updateData: Partial<MusicaModel>): MusicaModel {
     return this.musicService.update(id, updateData);
   }
 

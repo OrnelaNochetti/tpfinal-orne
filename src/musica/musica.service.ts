@@ -1,27 +1,27 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { MusicModel } from './models/musica.model';
+import { MusicaModel } from './models/musica.model';
 
 @Injectable()
 export class MusicService {
-  private musicCollection: MusicModel[] = [];
+  private musicCollection: MusicaModel[] = [];
 
-  findAll(): MusicModel[] {
+  findAll(): MusicaModel[] {
     return this.musicCollection;
   }
 
-  findOne(id: number): MusicModel {
+  findOne(id: number): MusicaModel {
     const song = this.musicCollection.find(song => song.id === id);
     if (!song) throw new NotFoundException(Canción con ID ${id} no encontrada);
     return song;
   }
 
-  create(musicData: Partial<MusicModel>): MusicModel {
-    const newMusic = new MusicModel({ id: Date.now(), ...musicData });
+  create(musicData: Partial<MusicaModel>): MusicaModel {
+    const newMusic = new MusicaModel({ id: Date.now(), ...musicData });
     this.musicCollection.push(newMusic);
     return newMusic;
   }
 
-  update(id: number, updateData: Partial<MusicModel>): MusicModel {
+  update(id: number, updateData: Partial<MusicaModel>): MusicaModel {
     const song = this.findOne(id);
     Object.assign(song, updateData);
     return song;

@@ -1,28 +1,28 @@
 import { Controller, Get, Post, Put, Delete, Param, Body, ParseIntPipe } from '@nestjs/common';
-import { UsersService } from './usuario.service';
-import { UserModel } from './models/usuario.model';
+import { UsuarioService } from './usuario.service';
+import { UsuarioModel } from './models/usuario.model';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsuarioService) {}
 
   @Get()
-  getAllUsers(): UserModel[] {
+  getAllUsers(): UsuarioModel[] {
     return this.usersService.findAll();
   }
 
   @Get(':id')
-  getUser(@Param('id', ParseIntPipe) id: number): UserModel {
+  getUser(@Param('id', ParseIntPipe) id: number): UsuarioModel {
     return this.usersService.findOne(id);
   }
 
   @Post()
-  createUser(@Body() userData: Partial<UserModel>): UserModel {
+  createUser(@Body() userData: Partial<UsuarioModel>): UsuarioModel {
     return this.usersService.create(userData);
   }
 
   @Put(':id')
-  updateUser(@Param('id', ParseIntPipe) id: number, @Body() updateData: Partial<UserModel>): UserModel {
+  updateUser(@Param('id', ParseIntPipe) id: number, @Body() updateData: Partial<UsuarioModel>): UsuarioModel {
     return this.usersService.update(id, updateData);
   }
 
