@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { MusicaModel } from './models/music.model';
+import { MusicaModel } from './models/musica.model';
 
 @Injectable()
 export class MusicaService {

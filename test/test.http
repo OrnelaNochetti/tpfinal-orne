@@ -1,0 +1,55 @@
+### Crear una nueva música
+POST http://localhost:3000/music
+Content-Type: application/json
+
+{
+  "title": "Canción de Ejemplo",
+  "artist": "Artista Ejemplo",
+  "genre": "Pop"
+}
+
+### Obtener todas las músicas
+GET http://localhost:3000/music
+
+### Obtener una música por ID
+GET http://localhost:3000/music/1
+
+### Actualizar una música
+PUT http://localhost:3000/music/1
+Content-Type: application/json
+
+{
+  "title": "Título Actualizado",
+  "artist": "Artista Actualizado"
+}
+
+### Eliminar una música
+DELETE http://localhost:3000/music/1
+
+
+### Crear un nuevo usuario
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Lennart",
+  "email": "lennart@example.com"
+}
+
+### Obtener todos los usuarios
+GET http://localhost:3000/users
+
+### Obtener un usuario por ID
+GET http://localhost:3000/users/1
+
+### Actualizar un usuario
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "name": "Roger"
+}
+
+### Eliminar un usuario
+DELETE http://localhost:3000/users/1

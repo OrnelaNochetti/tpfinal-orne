@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Param, Body, ParseIntPipe } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
-import { UsuarioModel } from './models/users.model';
+import { UsuarioModel } from './models/usuario.model';
 
 @Controller('users')
 export class UsuarioController {
